@@ -1,2 +1,9 @@
-# Notepad
-Notepad-=2
+# Notepad-=2
+### Notepad-=2
+
+Qt学习练手项目，做一个简单的记事本。上一个版本叫Notepad-- (致敬Notepad++、Notepad)  
+****
+**start :** 2020.3.30  
+  
+**0.1.0 :** 2020.3.31  初次提交，功能缺失，已完成（文件读取、保存(有bug)，字体设置(有bug)）
+

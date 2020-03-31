@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="File">icon/file.png</file>
+        <file>icon/find.png</file>
+        <file>icon/new.png</file>
+        <file>icon/open.png</file>
+        <file>icon/redo.png</file>
+        <file>icon/save.png</file>
+        <file>icon/undo.png</file>
+        <file alias="copy">icon/复制 (1).png</file>
+        <file alias="paste">icon/粘贴.png</file>
+        <file alias="cut">icon/剪切.png</file>
+        <file alias="underline">icon/下划线.png</file>
+        <file alias="bold">icon/加粗.png</file>
+        <file alias="italic">icon/斜体.png</file>
+        <file alias="help">icon/帮助.png</file>
+        <file alias="about">icon/关于.png</file>
+        <file alias="exit">icon/退出.png</file>
+        <file alias="MAIN">icon/编辑.png</file>
+        <file alias="delete">icon/删除.png</file>
+        <file alias="clean">icon/删 除.png</file>
+        <file alias="next">icon/下一个.png</file>
+        <file alias="replace">icon/替换.png</file>
+        <file alias="color">icon/字体颜色_文字操作_jurassic.png</file>
+        <file alias="saveall">icon/content-save-all.png</file>
+        <file alias="size">icon/728编辑器_字体大小.png</file>
+        <file alias="saveto">icon/另存为.png</file>
+        <file alias="code">icon/编码方案.png</file>
+        <file alias="font">icon/字体.png</file>
+        <file alias="selectall">icon/全选.png</file>
+    </qresource>
+</RCC>
