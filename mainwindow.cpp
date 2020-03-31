@@ -5,6 +5,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QFont>
+#include "aboutwindow.h"
+#include "helpwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->timer = new QTimer;
-    this->filewatcher = new QFileSystemWatcher;
+//    this->timer = new QTimer;
+//    this->filewatcher = new QFileSystemWatcher;
     this->isUntitle = true;
     this->isModified = false;
 
@@ -25,25 +27,21 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle(tr("Notepad-=2"));
     this->setWindowIcon(QIcon(":/icon/MAIN"));
 
-    this->filewatcher->addPath(this->path);
-    this->timer->start(600);
-//    connect(timer, &QTimer::timeout, this, &MainWindow::timerout);
-//    connect(filewatcher, &QFileSystemWatcher::fileChanged, this, &MainWindow::isChanged);
+//    this->filewatcher->addPath(this->path);
+//    this->timer->start(600);
+
     connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged()));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete timer;
-    delete filewatcher;
+//    delete timer;
+//    delete filewatcher;
+    delete wfind;
 }
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-/// \brief slot functions
-/////////////////////////////////////////////////////////////////////////////////////
 
 void MainWindow::on_actionOpen_O_triggered()
 {
@@ -60,9 +58,10 @@ void MainWindow::on_actiontuichu_triggered()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     qDebug() << this->isModified;
+
     if(this->isModified)
     {
-        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?").arg(this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
+        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
 
         if(btn == QMessageBox::Cancel)
         {
@@ -71,10 +70,14 @@ void MainWindow::closeEvent(QCloseEvent *event)
         if(btn == QMessageBox::Yes)
         {
             this->saveFile();
+            delete wfind;
+            return;
         }
         else
         {
             event->accept();
+            delete wfind;
+            return;
         }
     }
 }
@@ -120,4 +123,23 @@ void MainWindow::on_actionBold_triggered(bool checked)
 void MainWindow::on_actionUnderline_triggered(bool checked)
 {
     this->setUnderline(checked);
+}
+
+void MainWindow::on_actionAbout_Notepad_2_triggered()
+{
+    AboutWindow w;
+
+    w.exec();
+}
+
+void MainWindow::on_actionFind_triggered()
+{
+    this->findtext();
+}
+
+void MainWindow::on_actionHelp_triggered()
+{
+    HelpWindow w;
+
+    w.exec();
 }

@@ -13,7 +13,7 @@ void MainWindow::newFile()
 {
     if(this->isModified)
     {
-        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?\n").arg(this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
+        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
         if(btn == QMessageBox::Yes)
         {
             this->saveFile();
@@ -36,12 +36,10 @@ void MainWindow::newFile()
 
     this->ui->textEdit->clear();
     this->ui->textEdit->setVisible(true);
-//    this->timer->start();
+
 }
 
-/////////////////////////////////////////////////////////////
-/// \brief MainWindow::openFile open an exist file
-/////////////////////////////////////////////////////////////
+
 void MainWindow::openFile()
 {
     QString temp = this->path;
@@ -53,7 +51,7 @@ void MainWindow::openFile()
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            QMessageBox::warning(this, tr("Read File"), tr("Can't open file:\n%1").arg(this->path));
+            QMessageBox::warning(this, tr("Read File"), tr("Can't open file:\n%1") + (this->path));
             return;
         }
 
@@ -74,7 +72,6 @@ void MainWindow::openFile()
 
     this->ui->textEdit->document()->setModified(false);
 
-//    this->filewatcher->addPath(this->path);
 }
 
 
@@ -90,7 +87,7 @@ void MainWindow::saveFile()
 
         if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
-            QMessageBox::warning(this, tr("Write File"), tr("Can't open file:\n%1").arg(this->path));
+            QMessageBox::warning(this, tr("Write File"), tr("Can't open file:\n%1") + (this->path));
             return;
         }
         QTextStream out(&file);
@@ -110,7 +107,6 @@ void MainWindow::saveFile()
     this->status &= ~((~true) << 2);
     this->setWindowTitle(this->path);
 
-//    this->timer->stop();
 }
 
 

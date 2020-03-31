@@ -55,8 +55,10 @@
     <addaction name="actionNew_N"/>
     <addaction name="actionOpen_O"/>
     <addaction name="actionSave_S"/>
-    <addaction name="actionSave_All"/>
     <addaction name="action_lingcvunwei"/>
+    <addaction name="actionSave_All"/>
+    <addaction name="separator"/>
+    <addaction name="actionprint"/>
     <addaction name="separator"/>
     <addaction name="actiontuichu"/>
    </widget>
@@ -69,7 +71,7 @@
     <addaction name="actionCopy_C"/>
     <addaction name="action_Cut_X"/>
     <addaction name="action_Paste_V"/>
-    <addaction name="actionquanxuan"/>
+    <addaction name="actionselectall"/>
     <addaction name="separator"/>
     <addaction name="actiondelete"/>
     <addaction name="actionclear"/>
@@ -103,10 +105,12 @@
      <addaction name="actionUnderline"/>
     </widget>
     <addaction name="menufontStyle"/>
-    <addaction name="actioncolor"/>
     <addaction name="actionfont_2"/>
+    <addaction name="actionfontsize"/>
+    <addaction name="actioncolor"/>
     <addaction name="actiondecode"/>
-    <addaction name="actionzitidaxiao"/>
+    <addaction name="actioncheckline"/>
+    <addaction name="actionpage"/>
    </widget>
    <addaction name="menu_N"/>
    <addaction name="menu_E"/>
@@ -133,17 +137,18 @@
    <addaction name="actionNew_N"/>
    <addaction name="actionOpen_O"/>
    <addaction name="actionSave_S"/>
+   <addaction name="action_lingcvunwei"/>
    <addaction name="separator"/>
    <addaction name="actionUndo_U"/>
    <addaction name="actionReundo_R"/>
    <addaction name="actionFind"/>
-   <addaction name="actionquanxuan"/>
+   <addaction name="actionselectall"/>
    <addaction name="separator"/>
    <addaction name="actionfont_2"/>
    <addaction name="actionBold"/>
    <addaction name="actionUnderline"/>
    <addaction name="actionItalic"/>
-   <addaction name="actionzitidaxiao"/>
+   <addaction name="actionfontsize"/>
    <addaction name="actioncolor"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
@@ -485,7 +490,7 @@
     <string>设置文本编码格式</string>
    </property>
   </action>
-  <action name="actionzitidaxiao">
+  <action name="actionfontsize">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/size</normaloff>:/icon/size</iconset>
@@ -497,7 +502,7 @@
     <string>设置字体大小</string>
    </property>
   </action>
-  <action name="actionquanxuan">
+  <action name="actionselectall">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/selectall</normaloff>:/icon/selectall</iconset>
@@ -510,6 +515,45 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionprint">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/print</normaloff>:/icon/print</iconset>
+   </property>
+   <property name="text">
+    <string>打印</string>
+   </property>
+   <property name="statusTip">
+    <string>打印文本</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionpage">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/page</normaloff>:/icon/page</iconset>
+   </property>
+   <property name="text">
+    <string>页面</string>
+   </property>
+   <property name="statusTip">
+    <string>设置页面</string>
+   </property>
+  </action>
+  <action name="actioncheckline">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/autonewline</normaloff>:/icon/autonewline</iconset>
+   </property>
+   <property name="text">
+    <string>自动换行</string>
+   </property>
+   <property name="statusTip">
+    <string>设置自动换行</string>
    </property>
   </action>
  </widget>

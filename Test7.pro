@@ -27,13 +27,22 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     fileop.cpp \
-    edit.cpp
+    edit.cpp \
+    aboutwindow.cpp \
+    findwindow.cpp \
+    helpwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    aboutwindow.h \
+    findwindow.h \
+    helpwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    aboutwindow.ui \
+    findwindow.ui \
+    helpwindow.ui
 
 RESOURCES += \
     icons.qrc

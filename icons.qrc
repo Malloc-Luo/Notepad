@@ -28,5 +28,8 @@
         <file alias="code">icon/编码方案.png</file>
         <file alias="font">icon/字体.png</file>
         <file alias="selectall">icon/全选.png</file>
+        <file alias="page">icon/页面 (1).png</file>
+        <file alias="print">icon/打印.png</file>
+        <file alias="autonewline">icon/换行.png</file>
     </qresource>
 </RCC>
