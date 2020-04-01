@@ -1,0 +1,16 @@
+*
+!*/
+!*.cpp
+!*.gitignore
+!*.h
+!*.ui
+!*.ico
+!*.rc
+!*.pro
+!*.qrc
+!*.png
+!*.md
+*.pro.user
+*.ui.autosave
+*.cpp.autosave
+!.gitignore
