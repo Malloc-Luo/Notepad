@@ -78,7 +78,7 @@ void MainWindow::openFile()
 }
 
 
-void MainWindow::saveFile()
+bool MainWindow::saveFile()
 {
     if(this->isUntitle)
     {
@@ -91,7 +91,7 @@ void MainWindow::saveFile()
         if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
             QMessageBox::warning(this, tr("Write File"), tr("Can't open file:\n%1") + (this->path));
-            return;
+            return false;
         }
         QTextStream out(&file);
         QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -105,6 +105,7 @@ void MainWindow::saveFile()
     }
 
     this->ui->textEdit->document()->setModified(false);
+    return true;
 }
 
 

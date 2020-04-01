@@ -14,19 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    this->timer = new QTimer;
-//    this->filewatcher = new QFileSystemWatcher;
     this->isUntitle = true;
     this->isModified = false;
-
-    this->status = ((true << 0) | (false << 1) | (false << 2));
+    this->findwindowCreated = false; //wfind是否被创建
 
     this->path = tr("Untitled.txt");
     this->tempPath = tr("C:/Users");
 
     this->setWindowTitle(tr("Notepad-=2"));
     this->setWindowIcon(QIcon(":/icon/MAIN"));
-
+//    this->timer = new QTimer;
+//    this->filewatcher = new QFileSystemWatcher;
 //    this->filewatcher->addPath(this->path);
 //    this->timer->start(600);
 
@@ -36,10 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    if(this->findwindowCreated)
+        delete wfind;
+
     delete ui;
 //    delete timer;
 //    delete filewatcher;
-    delete wfind;
 }
 
 
@@ -67,20 +67,21 @@ void MainWindow::closeEvent(QCloseEvent *event)
         {
             event->ignore();
         }
-        if(btn == QMessageBox::Yes)
+        else if(btn == QMessageBox::Yes)
         {
-            this->saveFile();
-//            delete wfind;
-            return;
+            if(!this->saveFile())
+            {
+                event->ignore();
+            }
         }
         else
         {
             event->accept();
-//            delete wfind;
-            return;
         }
     }
 }
+
+
 
 void MainWindow::on_actionNew_N_triggered()
 {
@@ -101,18 +102,13 @@ void MainWindow::isChanged(bool changed)
 {
     if(changed)
     {
-        static unsigned i = 0;
         this->setWindowTitle(this->path + tr("*"));
         this->isModified = true;
-//        this->status &= 0xfb;
-        qDebug() << i++ ;
     }
     else
     {
         this->setWindowTitle(this->path);
     }
-    qDebug() << "Enter";
-
 }
 
 void MainWindow::on_actionItalic_triggered(bool checked)
@@ -139,6 +135,7 @@ void MainWindow::on_actionAbout_Notepad_2_triggered()
 
 void MainWindow::on_actionFind_triggered()
 {
+    this->findwindowCreated = true;
     this->findtext();
 }
 

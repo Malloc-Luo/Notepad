@@ -22,6 +22,7 @@ FindWindow::FindWindow(QWidget *parent) :
 
 FindWindow::~FindWindow()
 {
+    qDebug() << "wfind is deleted";
     delete ui;
 }
 

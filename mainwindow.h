@@ -22,7 +22,7 @@ public:
 public:
     void newFile();
 
-    void saveFile();
+    bool saveFile();    //save successfully ? true : false
 
     void saveAll();
 
@@ -76,12 +76,12 @@ private:
 
     FindWindow * wfind;
 
-    //[0]->(isUntitle) [1]->(isModified) [2]->(isCallSetModified)...
-    unsigned char status;
-
     QTimer * timer;
     
     QFileSystemWatcher * filewatcher;
+
+private:
+    bool findwindowCreated;
 
 protected:
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>727</height>
+    <width>646</width>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>623</width>
+     <width>646</width>
      <height>26</height>
     </rect>
    </property>
@@ -110,6 +110,7 @@
     <addaction name="actioncolor"/>
     <addaction name="actiondecode"/>
     <addaction name="actioncheckline"/>
+    <addaction name="actionautosave"/>
     <addaction name="actionpage"/>
    </widget>
    <addaction name="menu_N"/>
@@ -554,6 +555,15 @@
    </property>
    <property name="statusTip">
     <string>设置自动换行</string>
+   </property>
+  </action>
+  <action name="actionautosave">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/autosave</normaloff>:/icon/autosave</iconset>
+   </property>
+   <property name="text">
+    <string>自动保存</string>
    </property>
   </action>
  </widget>
