@@ -32,5 +32,6 @@
         <file alias="print">icon/打印.png</file>
         <file alias="autonewline">icon/换行.png</file>
         <file alias="autosave">icon/自动.png</file>
+        <file alias="MAIN2">icon/MAIN2.png</file>
     </qresource>
 </RCC>

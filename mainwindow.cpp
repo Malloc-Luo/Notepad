@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->tempPath = tr("C:/Users");
 
     this->setWindowTitle(tr("Notepad-=2"));
-    this->setWindowIcon(QIcon(":/icon/MAIN"));
+    this->setWindowIcon(QIcon(":/icon/MAIN2"));
 //    this->timer = new QTimer;
 //    this->filewatcher = new QFileSystemWatcher;
 //    this->filewatcher->addPath(this->path);
