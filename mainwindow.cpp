@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    this->filewatcher->addPath(this->path);
 //    this->timer->start(600);
 
-    connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged()));
+    connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged(bool)));
 
 }
 
@@ -70,13 +70,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
         if(btn == QMessageBox::Yes)
         {
             this->saveFile();
-            delete wfind;
+//            delete wfind;
             return;
         }
         else
         {
             event->accept();
-            delete wfind;
+//            delete wfind;
             return;
         }
     }
@@ -97,16 +97,21 @@ void MainWindow::on_action_lingcvunwei_triggered()
     this->saveAs();
 }
 
-void MainWindow::isChanged()
+void MainWindow::isChanged(bool changed)
 {
-    if(!((this->status >> 2) & 0x01))
+    if(changed)
     {
         static unsigned i = 0;
         this->setWindowTitle(this->path + tr("*"));
         this->isModified = true;
-        this->status &= 0xfb;
+//        this->status &= 0xfb;
         qDebug() << i++ ;
     }
+    else
+    {
+        this->setWindowTitle(this->path);
+    }
+    qDebug() << "Enter";
 
 }
 

@@ -49,7 +49,7 @@ private slots:
 
     void on_action_lingcvunwei_triggered(); //save file as
     
-    void isChanged();   //if text modified
+    void isChanged(bool changed);   //if text modified
 
     void on_actionItalic_triggered(bool checked);     //set text font to Italic
 

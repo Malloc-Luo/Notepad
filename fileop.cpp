@@ -24,39 +24,43 @@ void MainWindow::newFile()
         }
     }
 
-    this->isUntitle = true;
-    this->isModified = false;
-
-    this->status = ((true << 0) | (false) << 1 | (true << 2));
-
-    this->ui->textEdit->document()->setModified(false);
-    this->path = tr("Untitled.txt");
-
-    this->setWindowTitle(tr("Untitled.txt"));
-
     this->ui->textEdit->clear();
     this->ui->textEdit->setVisible(true);
 
+    this->isUntitle = true;
+    this->isModified = false;
+
+    this->ui->textEdit->document()->setModified(false);
+
+    this->path = tr("Untitled.txt");
+    this->setWindowTitle(tr("Untitled.txt"));
 }
 
 
 void MainWindow::openFile()
 {
     QString temp = this->path;
+
     this->path = QFileDialog::getOpenFileName(this, tr("打开文件"), this->tempPath, tr("Text Files (*.txt);;C/Cpp Files (*.c *.cpp *.h *.hpp);;python (*.py);;javascript (*.js *.json);;bat script (*.bat *.cmd)"));
+
     if(!this->path.isEmpty())
     {
         this->setWindowTitle(this->path);
+
         QFile file(this->path);
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
             QMessageBox::warning(this, tr("Read File"), tr("Can't open file:\n%1") + (this->path));
+            this->path = temp;
             return;
         }
 
         QTextStream getin(&file);
+
+        ui->textEdit->clear();
         ui->textEdit->setText(getin.readAll());
+
         file.close();
     }
     else
@@ -66,12 +70,11 @@ void MainWindow::openFile()
     }
     this->isUntitle = false;
     this->isModified = false;
-    this->tempPath = this->path;
-
-    this->status = ((false << 0) | (false << 1) | (true << 2));
 
     this->ui->textEdit->document()->setModified(false);
 
+    this->tempPath = this->path;
+    this->setWindowTitle(this->path);
 }
 
 
@@ -98,20 +101,18 @@ void MainWindow::saveFile()
 
         this->isUntitle = false;
         this->isModified = false;
-
-        this->status &= ~((~false) << 0 | ~(false) << 1);
+        this->setWindowTitle(this->path);
     }
 
     this->ui->textEdit->document()->setModified(false);
-
-    this->status &= ~((~true) << 2);
-    this->setWindowTitle(this->path);
-
 }
 
 
 void MainWindow::saveAs()
 {
+
+    QString buff = this->path;
+
     this->path = QFileDialog::getSaveFileName(this, tr("保存文件"), this->tempPath, tr("Text Files (*.txt);;C\\Cpp Files (*.c *.cpp *.h *.hpp);; python (*.py);; javascript (*.js *.json);;bat script (*.bat *.cmd)"));
 
     if(!this->path.isEmpty())
@@ -129,19 +130,44 @@ void MainWindow::saveAs()
         QApplication::setOverrideCursor(Qt::WaitCursor);
         out << ui->textEdit->toPlainText();
         QApplication::restoreOverrideCursor();
+
         file.close();
 
         this->isUntitle = false;
         this->isModified = false;
-        this->status &= ~((~false) << 0 | ~(false) << 1);
 
         this->setWindowTitle(this->path); 
     }
     else
     {
-        this->path = tr("Untitled.txt");
+        this->path = buff;
         return;
     }
 
     this->tempPath = this->path;
+
+    this->setWindowTitle(this->path);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

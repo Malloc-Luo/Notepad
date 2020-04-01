@@ -46,3 +46,5 @@ FORMS += \
 
 RESOURCES += \
     icons.qrc
+
+RC_FILE = myapp.rc
