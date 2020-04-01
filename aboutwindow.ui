@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>463</width>
-    <height>294</height>
+    <width>507</width>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>230</y>
+     <x>230</x>
+     <y>260</y>
      <width>251</width>
      <height>61</height>
     </rect>
@@ -81,7 +81,7 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>90</x>
      <y>30</y>
      <width>321</width>
      <height>131</height>
@@ -108,7 +108,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Vision: 0.2.0</string>
+       <string>Vision: 0.2.1</string>
       </property>
      </widget>
     </item>
@@ -123,7 +123,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Date: 2020.03.31</string>
+       <string>Date: 2020.04.01</string>
       </property>
      </widget>
     </item>
