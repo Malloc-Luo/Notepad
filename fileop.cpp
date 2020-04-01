@@ -13,7 +13,7 @@ void MainWindow::newFile()
 {
     if(this->isModified)
     {
-        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
+        QMessageBox::StandardButton btn = QMessageBox::warning(this, MainWindow::Title, tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
         if(btn == QMessageBox::Yes)
         {
             this->saveFile();
@@ -41,7 +41,7 @@ void MainWindow::openFile()
 {
     QString temp = this->path;
 
-    this->path = QFileDialog::getOpenFileName(this, tr("打开文件"), this->tempPath, tr("Text Files (*.txt);;C/Cpp Files (*.c *.cpp *.h *.hpp);;python (*.py);;javascript (*.js *.json);;bat script (*.bat *.cmd)"));
+    this->path = QFileDialog::getOpenFileName(this, tr("打开文件 - %1").arg(MainWindow::Title), this->tempPath, tr("Text Files (*.txt);;C/Cpp Files (*.c *.cpp *.h *.hpp);;python (*.py);;javascript (*.js *.json);;bat script (*.bat *.cmd)"));
 
     if(!this->path.isEmpty())
     {
@@ -51,7 +51,7 @@ void MainWindow::openFile()
 
         if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            QMessageBox::warning(this, tr("Read File"), tr("Can't open file:\n%1") + (this->path));
+            QMessageBox::warning(this, tr("Read File"), tr("Can't open file:\n%1").arg(this->path));
             this->path = temp;
             return;
         }
@@ -90,7 +90,7 @@ bool MainWindow::saveFile()
 
         if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
-            QMessageBox::warning(this, tr("Write File"), tr("Can't open file:\n%1") + (this->path));
+            QMessageBox::warning(this, tr("Write File"), tr("Can't open file:\n%1").arg(this->path));
             return false;
         }
         QTextStream out(&file);
@@ -114,7 +114,7 @@ void MainWindow::saveAs()
 
     QString buff = this->path;
 
-    this->path = QFileDialog::getSaveFileName(this, tr("保存文件"), this->tempPath, tr("Text Files (*.txt);;C\\Cpp Files (*.c *.cpp *.h *.hpp);; python (*.py);; javascript (*.js *.json);;bat script (*.bat *.cmd)"));
+    this->path = QFileDialog::getSaveFileName(this, tr("保存文件 - %1").arg(MainWindow::Title), this->tempPath, tr("Text Files (*.txt);;C\\Cpp Files (*.c *.cpp *.h *.hpp);; python (*.py);; javascript (*.js *.json);;bat script (*.bat *.cmd)"));
 
     if(!this->path.isEmpty())
     {

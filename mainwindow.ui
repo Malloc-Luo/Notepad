@@ -15,6 +15,21 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QLabel" name="CursorP">
+      <property name="font">
+       <font>
+        <family>Adobe 黑体 Std R</family>
+        <pointsize>8</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QTextEdit" name="textEdit">
       <property name="font">
@@ -34,21 +49,6 @@
       </property>
       <property name="tabStopWidth">
        <number>45</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="CursorP">
-      <property name="font">
-       <font>
-        <family>Adobe 黑体 Std R</family>
-        <pointsize>8</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
     </item>
@@ -93,6 +93,8 @@
     <addaction name="actionFind"/>
     <addaction name="actionReplace"/>
     <addaction name="actionFind_Next"/>
+    <addaction name="separator"/>
+    <addaction name="actionaddtime"/>
    </widget>
    <widget class="QMenu" name="menu_H">
     <property name="title">
@@ -120,12 +122,12 @@
     </widget>
     <addaction name="menufontStyle"/>
     <addaction name="actionfont_2"/>
-    <addaction name="actionfontsize"/>
     <addaction name="actioncolor"/>
+    <addaction name="actionpage"/>
+    <addaction name="separator"/>
     <addaction name="actiondecode"/>
     <addaction name="actioncheckline"/>
     <addaction name="actionautosave"/>
-    <addaction name="actionpage"/>
    </widget>
    <addaction name="menu_N"/>
    <addaction name="menu_E"/>
@@ -160,11 +162,10 @@
    <addaction name="actionselectall"/>
    <addaction name="separator"/>
    <addaction name="actionfont_2"/>
+   <addaction name="actioncolor"/>
    <addaction name="actionBold"/>
    <addaction name="actionUnderline"/>
    <addaction name="actionItalic"/>
-   <addaction name="actionfontsize"/>
-   <addaction name="actioncolor"/>
    <addaction name="separator"/>
    <addaction name="actionHelp"/>
   </widget>
@@ -218,6 +219,9 @@
    </property>
   </action>
   <action name="actionSave_All">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/saveall</normaloff>:/icon/saveall</iconset>
@@ -273,6 +277,9 @@
    <property name="statusTip">
     <string>复制选中</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="action_Cut_X">
    <property name="icon">
@@ -285,6 +292,9 @@
    <property name="statusTip">
     <string>剪切选中</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
   </action>
   <action name="action_Paste_V">
    <property name="icon">
@@ -296,6 +306,9 @@
    </property>
    <property name="statusTip">
     <string>粘贴文本</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="action_lingcvunwei">
@@ -312,6 +325,9 @@
    <property name="statusTip">
     <string>文件另存为</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
   </action>
   <action name="actiontuichu">
    <property name="icon">
@@ -327,6 +343,9 @@
    <property name="statusTip">
     <string>关闭并退出Notepad-=2</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Q</string>
+   </property>
   </action>
   <action name="actionHelp">
    <property name="icon">
@@ -338,6 +357,9 @@
    </property>
    <property name="statusTip">
     <string>帮助</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
    </property>
   </action>
   <action name="actiondelete">
@@ -351,6 +373,9 @@
    <property name="statusTip">
     <string>删除选中内容</string>
    </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
   </action>
   <action name="actionclear">
    <property name="icon">
@@ -362,6 +387,9 @@
    </property>
    <property name="statusTip">
     <string>清空当前文件内容</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
    </property>
   </action>
   <action name="actionFind">
@@ -380,6 +408,9 @@
    </property>
   </action>
   <action name="actionReplace">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/replace</normaloff>:/icon/replace</iconset>
@@ -470,6 +501,9 @@
    </property>
   </action>
   <action name="actioncolor">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/color</normaloff>:/icon/color</iconset>
@@ -584,6 +618,24 @@
    </property>
    <property name="text">
     <string>自动保存</string>
+   </property>
+  </action>
+  <action name="actionaddtime">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/time</normaloff>:/icon/time</iconset>
+   </property>
+   <property name="text">
+    <string>添加时间</string>
+   </property>
+   <property name="toolTip">
+    <string>添加编辑时间至文件开头</string>
+   </property>
+   <property name="statusTip">
+    <string>添加编辑时间至文档开头</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
  </widget>

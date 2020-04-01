@@ -1,23 +1,39 @@
-# Notepad-=2
-## Notepad-=2
+# Notepadm2
+## Notepadm2
 
-Qt学习练手项目，做一个简单的记事本。上一个版本叫Notepad-- (致敬Notepad++、Notepad) 
+Qt学习练手项目，做一个简单的记事本。上一个版本叫Notepad-- (Notepad++、Notepad) 
 
 图标来源：[阿里巴巴矢量图标库](https://www.iconfont.cn/search/index?q=)等
+
+[Release]()
+
+
 ****
 ### BUGS/TODOS
 
 * ~~文件是否更改判断逻辑有问题~~  
 * ~~打开查找框之后关闭主窗口显示程序异常退出(怀疑是内存泄漏)~~  
 * ~~响应窗口关闭事件，忽略事件无效(event->ignore()不起作用)~~
-* 查找模式切换逻辑有问题(待后续完善)  
-* Undo、Redo操作有问题
-* 完成查找模式选择
-* 设置ini文件，保存设置
+* 查找模式切换逻辑有问题(待后续完善)    
+* Undo、Redo操作有问题  
+* 完成查找模式选择  
+* 设置ini文件，保存设置  
+* 设置字体有bug，只能设置选中的文本  
+* 尝试使用Qt提供的QFindDialog完成查找替换~  
+* 在底部实时显示行列号(QLable太丑，statusTip不能实时刷新)  
 
 ****
 
 ### NOTES
+
+#### **0.4.0 :** 2020.4.2  
+>添加设置字体功能(QFontDialog)  
+>添加设置字体颜色功能(QColorDialog)  
+
+**0.3.1 :** 2020.4.1
+>正式更名为Notepadm2 (Notepad minus 2)  
+>更换图标(自己设计，比之前的马赛克好点儿)  
+>上传release版
 
 #### **0.3.0 :** 2020.4.1
 >添加自动换行功能  

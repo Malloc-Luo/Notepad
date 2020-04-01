@@ -108,7 +108,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Vision: 0.3.0</string>
+       <string>Vision: 0.4.0</string>
       </property>
      </widget>
     </item>
@@ -123,7 +123,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Date: 2020.04.01</string>
+       <string>Date: 2020.04.02</string>
       </property>
      </widget>
     </item>

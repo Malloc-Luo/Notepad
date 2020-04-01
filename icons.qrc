@@ -33,5 +33,6 @@
         <file alias="autonewline">icon/换行.png</file>
         <file alias="autosave">icon/自动.png</file>
         <file alias="MAIN2">icon/MAIN2.png</file>
+        <file alias="time">icon/时间 (1).png</file>
     </qresource>
 </RCC>

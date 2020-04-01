@@ -8,6 +8,9 @@
 #include <QFileSystemWatcher>
 #include <QTextCursor>
 #include "findwindow.h"
+#include <QDialog>
+#include <QFontDialog>
+#include <QColorDialog>
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +19,9 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+public:
+    QString Title = tr("Notepadm2");
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -36,6 +42,10 @@ public:
     void setUnderline(bool );
 
     void setItalic(bool );
+
+    void setFont();
+
+    void setFontColor();
 
     void findtext();
 
@@ -76,6 +86,10 @@ private slots:
 
     void get_cursor();
 
+    void on_actionfont_2_triggered();
+
+    void on_actioncolor_triggered();
+
 signals:
     void Send_cursor_position(int b, int c);
 
@@ -93,11 +107,11 @@ private:
 
     QString tempPath;
 
-    FindWindow * wfind;
-
     QTimer * timer;
     
     QFileSystemWatcher * filewatcher;
+
+    FindWindow * wfind;
 
 private:
     bool findwindowCreated;

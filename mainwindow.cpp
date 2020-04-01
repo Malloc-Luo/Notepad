@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->path = tr("Untitled.txt");
     this->tempPath = tr("C:/Users");
 
-    this->setWindowTitle(tr("Notepad-=2"));
+    this->setWindowTitle(MainWindow::Title);
     this->setWindowIcon(QIcon(":/icon/MAIN2"));
 //    this->timer = new QTimer;
 //    this->filewatcher = new QFileSystemWatcher;
@@ -65,7 +65,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
     if(this->isModified)
     {
-        QMessageBox::StandardButton btn = QMessageBox::warning(this, tr("Notepad-=2"), tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
+        QMessageBox::StandardButton btn = QMessageBox::warning(this, MainWindow::Title, tr("The file has been changed, save or not?\n") + (this->path), QMessageBox::Yes | QMessageBox::Cancel | QMessageBox::No, QMessageBox::Yes);
 
         if(btn == QMessageBox::Cancel)
         {
@@ -84,7 +84,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
     }
 }
-
 
 
 void MainWindow::on_actionNew_N_triggered()
@@ -172,15 +171,12 @@ void MainWindow::Show_cursor_position(int b, int c)
     this->ui->textEdit->setStatusTip(tr("行：%1 列：%2").arg(b).arg(c));
 }
 
+void MainWindow::on_actionfont_2_triggered()
+{
+    this->setFont();
+}
 
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_actioncolor_triggered()
+{
+    this->setFontColor();
+}

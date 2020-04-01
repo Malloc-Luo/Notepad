@@ -30,7 +30,8 @@ SOURCES += \
     edit.cpp \
     aboutwindow.cpp \
     findwindow.cpp \
-    helpwindow.cpp
+    helpwindow.cpp \
+    setting.cpp
 
 HEADERS += \
         mainwindow.h \
