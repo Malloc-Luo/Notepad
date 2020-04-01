@@ -13,14 +13,20 @@ void MainWindow::setBold(bool selected)
 
 void MainWindow::setUnderline(bool selected)
 {
-    bool isUnderline = this->ui->textEdit->fontUnderline();
-    this->ui->textEdit->setFontUnderline(!isUnderline);
+    QFont font = this->ui->textEdit->font();
+    font.setUnderline(selected);
+    this->ui->textEdit->setFont(font);
+//    bool isUnderline = this->ui->textEdit->fontUnderline();
+//    this->ui->textEdit->setFontUnderline(!isUnderline);
 }
 
 void MainWindow::setItalic(bool selected)
 {
-    bool isItalic = this->ui->textEdit->fontItalic();
-    this->ui->textEdit->setFontItalic(!isItalic);
+    QFont font = this->ui->textEdit->font();
+    font.setItalic(selected);
+    this->ui->textEdit->setFont(font);
+//    bool isItalic = this->ui->textEdit->fontItalic();
+//    this->ui->textEdit->setFontItalic(!isItalic);
 }
 
 void MainWindow::findtext()
@@ -49,3 +55,68 @@ void MainWindow::findintext(const QString & exp, unsigned char rule)
         }
     }
 }
+
+void MainWindow::autoCheckLine(bool checked)
+{
+    if(checked)
+    {
+        ui->textEdit->setLineWrapMode(QTextEdit::WidgetWidth);
+    }
+    else
+    {
+        ui->textEdit->setLineWrapMode(QTextEdit::NoWrap);
+    }
+}
+
+void MainWindow::edit_init()
+{
+    this->ui->actionUndo_U->setEnabled(false);
+    this->ui->actionReundo_R->setEnabled(false);
+    this->ui->actionCopy_C->setEnabled(false);
+
+    connect(this->ui->actionclear, &QAction::triggered, this->ui->textEdit, &QTextEdit::clear);
+    connect(this->ui->actionUndo_U, &QAction::triggered, this->ui->textEdit, &QTextEdit::undo);
+    connect(this->ui->actionReundo_R, &QAction::triggered, this->ui->textEdit, &QTextEdit::redo);
+    connect(this->ui->actionCopy_C, &QAction::triggered, this->ui->textEdit, &QTextEdit::copy);
+    connect(this->ui->action_Paste_V, &QAction::triggered, this->ui->textEdit, &QTextEdit::paste);
+    connect(this->ui->actionselectall, &QAction::triggered, this->ui->textEdit, &QTextEdit::selectAll);
+    connect(this->ui->action_Cut_X, &QAction::triggered, this->ui->textEdit, &QTextEdit::cut);
+
+    connect(this->ui->textEdit, &QTextEdit::undoAvailable, this->ui->actionUndo_U, &QAction::setEnabled);
+    connect(this->ui->textEdit, &QTextEdit::redoAvailable, this->ui->actionReundo_R, &QAction::setEnabled);
+    connect(this->ui->textEdit,&QTextEdit::copyAvailable, this->ui->actionCopy_C, &QAction::setEnabled);
+
+    connect(this->ui->textEdit, &QTextEdit::cursorPositionChanged, this, &MainWindow::get_cursor);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

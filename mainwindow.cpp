@@ -7,6 +7,7 @@
 #include <QFont>
 #include "aboutwindow.h"
 #include "helpwindow.h"
+#include <QTextLayout>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,8 +29,11 @@ MainWindow::MainWindow(QWidget *parent) :
 //    this->filewatcher->addPath(this->path);
 //    this->timer->start(600);
 
-    connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged(bool)));
+    this->edit_init();
 
+    ui->textEdit->setLineWrapMode(QTextEdit::NoWrap); //默认不换行
+    connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged(bool)));
+    connect(this, &MainWindow::Send_cursor_position, this, &MainWindow::Show_cursor_position);
 }
 
 MainWindow::~MainWindow()
@@ -145,3 +149,38 @@ void MainWindow::on_actionHelp_triggered()
 
     w.exec();
 }
+
+void MainWindow::on_actioncheckline_triggered(bool checked)
+{
+    this->autoCheckLine(checked);
+}
+
+void MainWindow::on_actionUndo_U_triggered()
+{
+
+}
+
+void MainWindow::get_cursor()
+{
+    this->Cursor = ui->textEdit->textCursor();
+    emit this->Send_cursor_position(this->Cursor.blockNumber(), this->Cursor.columnNumber());
+}
+
+void MainWindow::Show_cursor_position(int b, int c)
+{
+    this->ui->CursorP->setText(tr("行：%1 列：%2").arg(b).arg(c));
+    this->ui->textEdit->setStatusTip(tr("行：%1 列：%2").arg(b).arg(c));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QFileSystemWatcher>
+#include <QTextCursor>
 #include "findwindow.h"
 
 namespace Ui {
@@ -37,6 +38,10 @@ public:
     void setItalic(bool );
 
     void findtext();
+
+    void autoCheckLine(bool );
+
+    void edit_init();
     
 private slots:
     void on_actionOpen_O_triggered();   //open file
@@ -65,10 +70,24 @@ private slots:
 
     void findintext(const QString & exp, unsigned char rule); //find
 
+    void on_actioncheckline_triggered(bool checked);
+
+    void on_actionUndo_U_triggered();
+
+    void get_cursor();
+
+signals:
+    void Send_cursor_position(int b, int c);
+
+public slots:
+    void Show_cursor_position(int b, int c);
+
 private:
     bool isUntitle;
 
     bool isModified;
+
+    QTextCursor Cursor;
 
     QString path;
 

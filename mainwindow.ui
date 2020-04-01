@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>646</width>
-    <height>777</height>
+    <width>632</width>
+    <height>857</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,6 +37,21 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="CursorP">
+      <property name="font">
+       <font>
+        <family>Adobe 黑体 Std R</family>
+        <pointsize>8</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -44,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>646</width>
+     <width>632</width>
      <height>26</height>
     </rect>
    </property>
@@ -73,7 +88,6 @@
     <addaction name="action_Paste_V"/>
     <addaction name="actionselectall"/>
     <addaction name="separator"/>
-    <addaction name="actiondelete"/>
     <addaction name="actionclear"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
@@ -416,7 +430,7 @@
     <string>将选中文本设置为斜体</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+B</string>
+    <string>Ctrl+I</string>
    </property>
   </action>
   <action name="actionBold">
@@ -434,7 +448,7 @@
     <string>将选中文本设为粗体</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+I</string>
+    <string>Ctrl+B</string>
    </property>
   </action>
   <action name="actionUnderline">
@@ -546,6 +560,12 @@
    </property>
   </action>
   <action name="actioncheckline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icon/autonewline</normaloff>:/icon/autonewline</iconset>
