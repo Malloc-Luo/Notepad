@@ -8,6 +8,8 @@
 #include "aboutwindow.h"
 #include "helpwindow.h"
 #include <QTextLayout>
+#include <QStringList>
+#include <QTextBrowser>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,20 +26,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->setWindowTitle(MainWindow::Title);
     this->setWindowIcon(QIcon(":/icon/MAIN2"));
-//    this->timer = new QTimer;
-//    this->filewatcher = new QFileSystemWatcher;
-//    this->filewatcher->addPath(this->path);
-//    this->timer->start(600);
-
+    this->ini_init();
     this->edit_init();
 
     ui->textEdit->setLineWrapMode(QTextEdit::NoWrap); //默认不换行
     connect(ui->textEdit->document(), SIGNAL(modificationChanged(bool)), SLOT(isChanged(bool)));
     connect(this, &MainWindow::Send_cursor_position, this, &MainWindow::Show_cursor_position);
+
+//    this->timer = new QTimer;
+//    this->filewatcher = new QFileSystemWatcher;
+//    this->filewatcher->addPath(this->path);
+//    this->timer->start(600);
 }
+
 
 MainWindow::~MainWindow()
 {
+    this->change_ini();
     if(this->findwindowCreated)
         delete wfind;
 
@@ -46,13 +51,11 @@ MainWindow::~MainWindow()
 //    delete filewatcher;
 }
 
-
 void MainWindow::on_actionOpen_O_triggered()
 {
     this->openFile();
 }
 
-//点击退出
 void MainWindow::on_actiontuichu_triggered()
 {
     close();
@@ -180,3 +183,45 @@ void MainWindow::on_actioncolor_triggered()
 {
     this->setFontColor();
 }
+
+void MainWindow::on_actionrun_triggered()
+{
+    qDebug() << "start debug";
+
+    QProcess cmd;
+
+//    QStringList argument;
+//    cmd.setProgram("cmd.exe");
+//    argument << "python " << this->path;
+
+    QDialog * output = new QDialog;
+    QTextBrowser * info = new QTextBrowser(output);
+
+    cmd.setArguments(QStringList(tr("python %1").arg(this->path)));
+
+    qDebug() << this->path;
+
+//   cmd.start("cmd", QStringList() << "python" << QString(this->path));
+    cmd.start("cmd");
+    cmd.waitForStarted();
+
+    cmd.waitForFinished();
+    info->setText(QString::fromLocal8Bit(cmd.readAllStandardOutput()));
+
+    qDebug() << QString::fromLocal8Bit(cmd.readAllStandardOutput());
+
+    info->setVisible(true);
+    output->show();
+
+//    delete output;
+//    delete info;
+}
+
+
+
+
+
+
+
+
+

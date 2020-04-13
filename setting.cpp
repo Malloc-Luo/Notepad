@@ -59,3 +59,64 @@ void MainWindow::setFontColor()
     QColor color = QColorDialog::getColor(Qt::black, this, tr("选择颜色"));
     this->ui->textEdit->setTextColor(color);
 }
+
+
+void MainWindow::ini_init()
+{
+    if(QFileInfo::exists("user.ini"))
+    {
+        this->ini = new QSettings("user.ini", QSettings::IniFormat);
+
+        this->ui->textEdit->setFont(QFont(this->ini->value("/Font/fontfamily").toString()));
+
+        this->ui->textEdit->setFontPointSize(qreal(this->ini->value("/Font/fontsize").toInt()));
+
+        this->ui->textEdit->setTextColor(QColor(this->ini->value("/Font/color").toString()));
+
+        this->tempPath = this->ini->value("/Path/path").toString();
+
+        delete this->ini;
+    }
+    else
+    {
+        this->ini = new QSettings("user.ini", QSettings::IniFormat);
+        ini->setValue("/user/first", 0);
+        delete this->ini;
+    }
+}
+
+
+void MainWindow::change_ini()
+{
+    this->ini = new QSettings("user.ini", QSettings::IniFormat);
+
+    ini->setValue("Font/fontfamily", this->ui->textEdit->font());
+
+    ini->setValue("Font/fontsize", this->ui->textEdit->fontPointSize());
+
+    ini->setValue("Font/color", this->ui->textEdit->textColor());
+
+    ini->setValue("Path/path", this->path);
+
+    delete this->ini;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -120,6 +120,12 @@
      <addaction name="actionBold"/>
      <addaction name="actionUnderline"/>
     </widget>
+    <widget class="QMenu" name="menudeveloptool">
+     <property name="title">
+      <string>调试工具(测试)</string>
+     </property>
+     <addaction name="actionrun"/>
+    </widget>
     <addaction name="menufontStyle"/>
     <addaction name="actionfont_2"/>
     <addaction name="actioncolor"/>
@@ -128,6 +134,7 @@
     <addaction name="actiondecode"/>
     <addaction name="actioncheckline"/>
     <addaction name="actionautosave"/>
+    <addaction name="menudeveloptool"/>
    </widget>
    <addaction name="menu_N"/>
    <addaction name="menu_E"/>
@@ -173,7 +180,7 @@
   <action name="actionNew_N">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/icon/new.png</normaloff>:/icon/icon/new.png</iconset>
+     <normaloff>:/icon/new</normaloff>:/icon/new</iconset>
    </property>
    <property name="text">
     <string>新建(&amp;N)</string>
@@ -191,7 +198,7 @@
   <action name="actionOpen_O">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/icon/open.png</normaloff>:/icon/icon/open.png</iconset>
+     <normaloff>:/icon/open</normaloff>:/icon/open</iconset>
    </property>
    <property name="text">
     <string>打开(&amp;O)</string>
@@ -206,7 +213,7 @@
   <action name="actionSave_S">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/icon/save.png</normaloff>:/icon/icon/save.png</iconset>
+     <normaloff>:/icon/save</normaloff>:/icon/save</iconset>
    </property>
    <property name="text">
     <string>保存(&amp;S)</string>
@@ -224,7 +231,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/saveall</normaloff>:/icon/saveall</iconset>
+     <normaloff>:/icon/icon/content-save-all.png</normaloff>:/icon/icon/content-save-all.png</iconset>
    </property>
    <property name="text">
     <string>全部保存</string>
@@ -254,7 +261,7 @@
   <action name="actionReundo_R">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/icon/redo.png</normaloff>:/icon/icon/redo.png</iconset>
+     <normaloff>:/icon/redo</normaloff>:/icon/redo</iconset>
    </property>
    <property name="text">
     <string>恢复(&amp;R)</string>
@@ -269,7 +276,7 @@
   <action name="actionCopy_C">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/copy</normaloff>:/icon/copy</iconset>
+     <normaloff>:/icon/icon/copy.png</normaloff>:/icon/icon/copy.png</iconset>
    </property>
    <property name="text">
     <string>复制(&amp;C)</string>
@@ -284,7 +291,7 @@
   <action name="action_Cut_X">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/cut</normaloff>:/icon/cut</iconset>
+     <normaloff>:/icon/icon/cut.png</normaloff>:/icon/icon/cut.png</iconset>
    </property>
    <property name="text">
     <string>剪切(&amp;X)</string>
@@ -299,7 +306,7 @@
   <action name="action_Paste_V">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/paste</normaloff>:/icon/paste</iconset>
+     <normaloff>:/icon/icon/paste.png</normaloff>:/icon/icon/paste.png</iconset>
    </property>
    <property name="text">
     <string>粘贴(&amp;V)</string>
@@ -314,7 +321,7 @@
   <action name="action_lingcvunwei">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/saveto</normaloff>:/icon/saveto</iconset>
+     <normaloff>:/icon/icon/saveas.png</normaloff>:/icon/icon/saveas.png</iconset>
    </property>
    <property name="text">
     <string>另存为..</string>
@@ -332,7 +339,7 @@
   <action name="actiontuichu">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/exit</normaloff>:/icon/exit</iconset>
+     <normaloff>:/icon/icon/exit.png</normaloff>:/icon/icon/exit.png</iconset>
    </property>
    <property name="text">
     <string>退出</string>
@@ -350,7 +357,7 @@
   <action name="actionHelp">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/help</normaloff>:/icon/help</iconset>
+     <normaloff>:/icon/icon/Help.png</normaloff>:/icon/icon/Help.png</iconset>
    </property>
    <property name="text">
     <string>Help?</string>
@@ -365,7 +372,7 @@
   <action name="actiondelete">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/delete</normaloff>:/icon/delete</iconset>
+     <normaloff>:/icon/icon/delete.png</normaloff>:/icon/icon/delete.png</iconset>
    </property>
    <property name="text">
     <string>删除</string>
@@ -380,7 +387,7 @@
   <action name="actionclear">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/clean</normaloff>:/icon/clean</iconset>
+     <normaloff>:/icon/icon/clean.png</normaloff>:/icon/icon/clean.png</iconset>
    </property>
    <property name="text">
     <string>清空</string>
@@ -395,7 +402,7 @@
   <action name="actionFind">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/icon/find.png</normaloff>:/icon/icon/find.png</iconset>
+     <normaloff>:/icon/find</normaloff>:/icon/find</iconset>
    </property>
    <property name="text">
     <string>查找(&amp;F)</string>
@@ -413,7 +420,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/replace</normaloff>:/icon/replace</iconset>
+     <normaloff>:/icon/icon/replace.png</normaloff>:/icon/icon/replace.png</iconset>
    </property>
    <property name="text">
     <string>替换</string>
@@ -425,7 +432,7 @@
   <action name="actionFind_Next">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/next</normaloff>:/icon/next</iconset>
+     <normaloff>:/icon/icon/next.png</normaloff>:/icon/icon/next.png</iconset>
    </property>
    <property name="text">
     <string>查找下一个</string>
@@ -437,7 +444,7 @@
   <action name="actionAbout_Notepad_2">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/about</normaloff>:/icon/about</iconset>
+     <normaloff>:/icon/icon/about.png</normaloff>:/icon/icon/about.png</iconset>
    </property>
    <property name="text">
     <string>关于 Notepad-=2</string>
@@ -452,7 +459,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/italic</normaloff>:/icon/italic</iconset>
+     <normaloff>:/icon/icon/italic.png</normaloff>:/icon/icon/italic.png</iconset>
    </property>
    <property name="text">
     <string>斜体</string>
@@ -470,7 +477,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/bold</normaloff>:/icon/bold</iconset>
+     <normaloff>:/icon/icon/bold.png</normaloff>:/icon/icon/bold.png</iconset>
    </property>
    <property name="text">
     <string>粗体</string>
@@ -488,7 +495,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/underline</normaloff>:/icon/underline</iconset>
+     <normaloff>:/icon/icon/underline.png</normaloff>:/icon/icon/underline.png</iconset>
    </property>
    <property name="text">
     <string>下划线</string>
@@ -506,7 +513,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/color</normaloff>:/icon/color</iconset>
+     <normaloff>:/icon/icon/color.png</normaloff>:/icon/icon/color.png</iconset>
    </property>
    <property name="text">
     <string>文本颜色</string>
@@ -518,7 +525,7 @@
   <action name="actionfont_2">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/font</normaloff>:/icon/font</iconset>
+     <normaloff>:/icon/icon/font.png</normaloff>:/icon/icon/font.png</iconset>
    </property>
    <property name="text">
     <string>字体</string>
@@ -530,7 +537,7 @@
   <action name="actiondecode">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/code</normaloff>:/icon/code</iconset>
+     <normaloff>:/icon/icon/encode.png</normaloff>:/icon/icon/encode.png</iconset>
    </property>
    <property name="text">
     <string>编码格式</string>
@@ -542,7 +549,7 @@
   <action name="actionfontsize">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/size</normaloff>:/icon/size</iconset>
+     <normaloff>:/icon/icon/fontsize.png</normaloff>:/icon/icon/fontsize.png</iconset>
    </property>
    <property name="text">
     <string>字体大小</string>
@@ -554,7 +561,7 @@
   <action name="actionselectall">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/selectall</normaloff>:/icon/selectall</iconset>
+     <normaloff>:/icon/icon/selectall.png</normaloff>:/icon/icon/selectall.png</iconset>
    </property>
    <property name="text">
     <string>全选(&amp;A)</string>
@@ -569,7 +576,7 @@
   <action name="actionprint">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/print</normaloff>:/icon/print</iconset>
+     <normaloff>:/icon/icon/print.png</normaloff>:/icon/icon/print.png</iconset>
    </property>
    <property name="text">
     <string>打印</string>
@@ -584,7 +591,7 @@
   <action name="actionpage">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/page</normaloff>:/icon/page</iconset>
+     <normaloff>:/icon/icon/pages.png</normaloff>:/icon/icon/pages.png</iconset>
    </property>
    <property name="text">
     <string>页面</string>
@@ -602,7 +609,7 @@
    </property>
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/autonewline</normaloff>:/icon/autonewline</iconset>
+     <normaloff>:/icon/icon/newline.png</normaloff>:/icon/icon/newline.png</iconset>
    </property>
    <property name="text">
     <string>自动换行</string>
@@ -614,7 +621,7 @@
   <action name="actionautosave">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/autosave</normaloff>:/icon/autosave</iconset>
+     <normaloff>:/icon/icon/autosave.png</normaloff>:/icon/icon/autosave.png</iconset>
    </property>
    <property name="text">
     <string>自动保存</string>
@@ -623,7 +630,7 @@
   <action name="actionaddtime">
    <property name="icon">
     <iconset resource="icons.qrc">
-     <normaloff>:/icon/time</normaloff>:/icon/time</iconset>
+     <normaloff>:/icon/icon/time.png</normaloff>:/icon/icon/time.png</iconset>
    </property>
    <property name="text">
     <string>添加时间</string>
@@ -636,6 +643,15 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionrun">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/icon/run.png</normaloff>:/icon/icon/run.png</iconset>
+   </property>
+   <property name="text">
+    <string>运行</string>
    </property>
   </action>
  </widget>

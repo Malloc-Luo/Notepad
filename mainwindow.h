@@ -11,6 +11,10 @@
 #include <QDialog>
 #include <QFontDialog>
 #include <QColorDialog>
+#include <QSettings>
+#include <QDir>
+#include <QFileInfo>
+#include <QProcess>
 
 namespace Ui {
 class MainWindow;
@@ -90,6 +94,8 @@ private slots:
 
     void on_actioncolor_triggered();
 
+    void on_actionrun_triggered();
+
 signals:
     void Send_cursor_position(int b, int c);
 
@@ -113,8 +119,21 @@ private:
 
     FindWindow * wfind;
 
+    QSettings * ini;
+
+    void ini_init();
+
+    void change_ini();
+
+    QDir * first;
+
+    QFont * textFont;
+
+    QColor * textColor;
+
 private:
     bool findwindowCreated;
+
 
 protected:
 
